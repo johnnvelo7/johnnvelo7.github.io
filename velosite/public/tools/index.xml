@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on John Velo Site</title>
+    <link>https://johnnvelo7.github.io/johnnvelo7.github.io/tools/</link>
+    <description>Recent content in Tools on John Velo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://johnnvelo7.github.io/johnnvelo7.github.io/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PATH_WATCHER</title>
+      <link>https://johnnvelo7.github.io/johnnvelo7.github.io/tools/path_watcher/</link>
+      <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://johnnvelo7.github.io/johnnvelo7.github.io/tools/path_watcher/</guid>
+      
+      <description>path_watcher CTF TOOL:
+https://github.com/johnnvelo7/path_watcher
+Monitor a directory for files created and closed after writing events. It displays the contents of the file after it&amp;rsquo;s written. This is useful for CTF&amp;rsquo;s where you need to dynamically analyse a malware especially if the malware is creating and deleting a file (flag.txt) in microseconds.
+TAKE NOTE:
+This program currently only works for Linux OS, but I&amp;rsquo;ll add support for windows soon.
+HOW TO USE: Install the required package (pyinotify): pip install pyinotify or pip3 install pyinotify</description>
+      
+    </item>
+    
+  </channel>
+</rss>
