@@ -1,5 +1,5 @@
 title = "John Velo Site"
-baseURL = 'https://johnnvelo7.github.io/'
+baseURL = 'https://velosecurity.com/'
 
 # This is what goes in <html lang="">
 languageCode = 'en-us'
