@@ -3,17 +3,17 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">404 Page not found | John Velo Site</title>
-<meta property="og:title" content="404 Page not found | John Velo Site" />
-<meta name="twitter:title" content="404 Page not found | John Velo Site" />
-<meta itemprop="name" content="404 Page not found | John Velo Site" />
-<meta name="application-name" content="404 Page not found | John Velo Site" />
+<title itemprop="name">Indirect Payload (Miscellaneous) Huntress CTF Writeup | John Velo Site</title>
+<meta property="og:title" content="Indirect Payload (Miscellaneous) Huntress CTF Writeup | John Velo Site" />
+<meta name="twitter:title" content="Indirect Payload (Miscellaneous) Huntress CTF Writeup | John Velo Site" />
+<meta itemprop="name" content="Indirect Payload (Miscellaneous) Huntress CTF Writeup | John Velo Site" />
+<meta name="application-name" content="Indirect Payload (Miscellaneous) Huntress CTF Writeup | John Velo Site" />
 <meta property="og:site_name" content="John Velo Site" />
 
-<meta name="description" content="My personal website">
-<meta itemprop="description" content="My personal website" />
-<meta property="og:description" content="My personal website" />
-<meta name="twitter:description" content="My personal website" />
+<meta name="description" content="Indirect Payload">
+<meta itemprop="description" content="Indirect Payload" />
+<meta property="og:description" content="Indirect Payload" />
+<meta name="twitter:description" content="Indirect Payload" />
 
 <meta property="og:locale" content="en-gb" />
 <meta name="language" content="en-gb" />
@@ -33,7 +33,7 @@
 
     
 
-    <link rel="canonical" href="https://velosecurity.com/404.html">
+    <link rel="canonical" href="https://velosecurity.com/ctf/huntressctf/indirect_payload/">
     <link href="/style.min.9bd04d0fad85388343088ec85e9afd787ea003e72914d7f57df39c17ab2e7173.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -92,7 +92,7 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="/ctf/">
+                    <a class="menu-link active" href="/ctf/">
                         CTF
                     </a>
                     
@@ -135,11 +135,46 @@ stroke-linejoin="round" class="feather feather-home">
     </nav>
 </div>
 
-<div class="wrapper">
-    <main class="main-404" aria-label="Content">
-        <h1>404 NOT FOUND hehe</h1>
-        <p>You just hit a route that doesn&#39;t exist. Sorry.</p>
-    </main>
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Indirect Payload (Miscellaneous) Huntress CTF Writeup</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-11-04T00:00:00&#43;00:00" itemprop="datePublished"> 4 Nov 2023 </time>
+                </div>
+                
+            </header>
+                
+                
+                <details class="toc" ZgotmplZ>
+                    <summary><b>Table of Contents</b></summary>
+                    <nav id="TableOfContents"></nav>
+                </details>
+                <div class="page-content">
+                <p>INDIRECT PAYLOAD WRITEUP
+Visiting the website we get this page:
+<img src="/writeup-images/Picture1.png" alt="indrect payload 1"></p>
+<p>Clicking on the button will redirect us to another url:</p>
+<p><img src="/writeup-images/Picture2.png" alt="indrect payload 2"></p>
+<p>And then we get error message.</p>
+<p><img src="/writeup-images/Picture3.png" alt="indrect payload 3"></p>
+<p>I then decided to see what is happening using burpsuite.</p>
+<p><img src="/writeup-images/Picture4.png" alt="indrect payload 4"></p>
+<p>Here I see that we get a new site that we can follow, so I decided to follow it manually, and after 2 more redirections we see the first character of the flag.</p>
+<p><img src="/writeup-images/Picture5.png" alt="indrect payload 5"></p>
+<p>This is when I realized that the flag is scattered through all the URLs that we are forced to redirect to. Here is the python Script I ended up using to follow the urls and print the payload.</p>
+<p><img src="/writeup-images/Picture6.png" alt="indrect payload 6"></p>
+<p>After running the script, we can now see the whole picture.</p>
+<p><img src="/writeup-images/Picture7.png" alt="indrect payload 7"></p>
+<p>We can then use this python script to parse the payload and print the flag. I first saved the output to a file called “flag.txt” and then ran it.</p>
+<p><img src="/writeup-images/Picture8.png" alt="indrect payload 8"></p>
+<p><img src="/writeup-images/Picture9.png" alt="indrect payload 9"></p>
+
+            </div>
+        </article></main>
 </div>
 <footer class="footer">
     <span class="footer_item"> </span>
