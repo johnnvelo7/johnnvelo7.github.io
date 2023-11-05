@@ -8,7 +8,7 @@ author: John Velo
 
 ![Me](/images/cv_john.jpg)
                 
-24 year old multidisciplinary 3rd year cyber security student with excellent results and a bachelor's degree in entrepreneurship. Former cyber security trainee with experience in SOC (ELK Stack), endpoint security and phishing campaigns at Cyberon Security AS. Strong attention to detail, quick learning capacity and ability to improvise under limited resources. Actively engaged in the CTF environment and holds the position of vice president of Oslo CTF. Currently top 19 in Norway on Tryhackme.
+24 year old multidisciplinary 3rd year cyber security student with excellent results and a bachelor's degree in entrepreneurship. Former cyber security trainee with experience in SOC (ELK Stack), endpoint security and phishing campaigns at Cyberon Security AS. Strong attention to detail, quick learning capacity and ability to improvise under limited resources. Actively engaged in the CTF environment and holds the position of vice president of Oslo CTF. Currently top 18 in Norway on Tryhackme.
 
                 
 ETHICAL HACKING SKILLS:
