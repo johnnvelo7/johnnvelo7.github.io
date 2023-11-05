@@ -44,4 +44,3 @@ We can then use this python script to parse the payload and print the flag. I fi
  
  
 
-
