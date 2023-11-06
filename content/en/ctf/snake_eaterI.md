@@ -7,37 +7,43 @@ description: Snake Eater
 
 # Snake Eater - Writeup
 
-First things first, to analyze this malware, we need to examine what kind of file it is. Using the file and **strings** command in kali, it gave me a view of what this file is doing. 
+First things first, to analyze this malware, I had to examine what kind of file it was. Using  ***file*** and ***strings*** command in Kali, gave me a view of what this file was doing. 
 
-```strings snake_eater.exe```
+```file snake_eater.exe```
 
 ![Snake Eater 1](/snake_eaterI/Picture1.png)
 
-Here is just the beginning and end of the file. I already see that the file is encrypted in some ways. 
+After analyzing the malware structure and description, I realied that the file was encrypted in some ways so I stopped and had to brainstorm a bit. 
+
+```strings snake_eater.exe```
 
 ![Snake Eater 2](/snake_eaterI/Picture2.png)
 
 ![Snake Eater 3](/snake_eaterI/Picture3.png)
 
-In order to find it out, we run the **binwalk** command in kali to see more what it is doing. 
+In order to get more information, I used the ***binwalk*** command in Kali to see more what it was doing. 
 
 ```binwalk -e snake_eater.exe```
 
 ![Snake Eater 4](/snake_eaterI/Picture4.png)
 
-I found nothing useful because the data is encrypted. 
-Using windows, we see the weird file icon. 
+I found nothing useful because the data was encrypted. 
+
+**Time to boot up Windows VM**
+
+Using windows, I saw this weird fie icon, just like the challenge description says.
 
 ![Snake Eater 5](/snake_eaterI/Picture5.png)
 
-Some google research later, we find that it is a python executable. 
-Back in Kali, I tried to decompile this file using this python executable script called **PyInstaller Extractor v2.0**. 
+Some google research later, I found that it was a python executable. 
+
+Back in Kali, I tried to decompile this file using this python executable script called ***PyInstaller Extractor v2.0***. 
 
 ![Snake Eater 6](/snake_eaterI/Picture6.png)
 
 https://github.com/extremecoders-re/pyinstxtractor
 
-After running the file we get the extracted folders, and are able to see inside the structure of the malware. 
+After running the script, I got the extracted folders, and was able to see inside the structure of the malware. 
 
 ```extractor.py snake_eater.exe```
 
@@ -46,20 +52,19 @@ After running the file we get the extracted folders, and are able to see inside 
 ![Snake Eater 8](/snake_eaterI/Picture8.png)
 
 ## BAD NEWS: 
-We see that the file Is encrypted using pyarmor. 
+I realized that the file was encrypted using pyarmor. 
 
 ![Snake Eater 9](/snake_eaterI/Picture9.png)
 
-Running out of hope, I decided to run it dynamically in windows using **procmon**. 
+Running out of hope, I decided to run it dynamically in Windows using ***procmon***. 
 
 ![Snake Eater 10](/snake_eaterI/Picture10.png)
 
-We already see that it is doing A LOT. So what we need to do is to filter these event logs using the filter option.
+I could already see that the malware was doing A LOT. I wanted to see more so I had to filter the event logs using the filter option. Add this filter and apply. 
 
 ![Snake Eater 11](/snake_eaterI/Picture11.png)
 
-Add this filter and apply. 
-Just scrolling through the logs we already see the **flag**. :D
+Just scrolling through the logs I was shocked because I could already see the ***flag*** in plaintext. :D
 
 ![Snake Eater 12](/snake_eaterI/Picture12.png)
 

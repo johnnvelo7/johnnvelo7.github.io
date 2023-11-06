@@ -14,12 +14,11 @@
       
       <guid>https://velosecurity.com/ctf/bad_memory/</guid>
       
-      <description>Bad Memory - Writeup The task wants us to recover the password that the user has forgotten. I immediately thought of using volatility since we are working with an image or memory dump.
+      <description>Bad Memory - Writeup The task wants us to recover the password that the user has forgotten. I immediately thought of using Volatility 3 since we are working with an image or memory dump.
 file image.bin
-So straight to action we need to get the hashes
+So straight to action, I decided to get the NTLM hashes from this image.
 vol -f image.bin windows.hashdump
-We need to save these hashes into a text file and fire up john the ripper to crack these hashes.
-john --format=NT -w=/usr/share/wordlists/rockyou.</description>
+I saveed these hashes into a text file and fire up my favourite password cracker, John The Ripper to crack these hashes.</description>
       
     </item>
     
@@ -30,9 +29,9 @@ john --format=NT -w=/usr/share/wordlists/rockyou.</description>
       
       <guid>https://velosecurity.com/ctf/blackcat/</guid>
       
-      <description>Black Cat - Writeup In this challenge, we were given a zip file containing the malware.
-We can already see that the challenge is about decrypting the encrypted files inside the victim-files along with the NOTE.png that tells us what to do.
-We can already see the encrypted flag.txt along with some random files inside the “victim-files” folder.
+      <description>Black Cat - Writeup In this challenge, I was given a zip file containing the malware.
+I could already see that the challenge was about decrypting the encrypted files inside the victim-files along with the NOTE.png that tells me what to do in order to get the files back.
+I also saw the encrypted flag.txt along with some random files inside the “victim-files” folder.
 Since this is a CTF challenge, I thought about investing this pictures as well using Aperi&amp;rsquo;Solve, a really good website to automate stenography.</description>
       
     </item>
@@ -44,10 +43,11 @@ Since this is a CTF challenge, I thought about investing this pictures as well u
       
       <guid>https://velosecurity.com/ctf/snake_eateri/</guid>
       
-      <description>Snake Eater - Writeup First things first, to analyze this malware, we need to examine what kind of file it is. Using the file and strings command in kali, it gave me a view of what this file is doing.
+      <description>Snake Eater - Writeup First things first, to analyze this malware, I had to examine what kind of file it was. Using file and strings command in Kali, gave me a view of what this file was doing.
+file snake_eater.exe
+After analyzing the malware structure and description, I realied that the file was encrypted in some ways so I stopped and had to brainstorm a bit.
 strings snake_eater.exe
-Here is just the beginning and end of the file. I already see that the file is encrypted in some ways.
-In order to find it out, we run the binwalk command in kali to see more what it is doing.</description>
+In order to get more information, I used the binwalk command in Kali to see more what it was doing.</description>
       
     </item>
     
@@ -60,8 +60,8 @@ In order to find it out, we run the binwalk command in kali to see more what it 
       
       <description>Snake Eater II - Writeup After unzipping this file, I checked first what kind of file this malware is.
 file snake_eaterII.exe
-Seems familiar to the previous challenge so I decided to check it in windows too. We see that It has the same icon as the previous challenge.
-I figured that this challenge will have the same thing as the previous challenge so I ran procmon to see what it is doing, perhaps on the same path directory as Snake Eater.</description>
+Seems familiar to the previous challenge so I decided to check it in windows too. I saw that it had the same icon as the previous challenge.
+I figured that this challenge might have the same solution as the previous one so I ran procmon to see what it was doing, perhaps on the same path directory as Snake Eater.</description>
       
     </item>
     
@@ -73,10 +73,9 @@ I figured that this challenge will have the same thing as the previous challenge
       <guid>https://velosecurity.com/ctf/indirect_payload/</guid>
       
       <description>Indirect Payload - Writeup Visiting the website we get this page:
-Clicking on the button will redirect us to another url:
-And then we get error message.
+When I clickked on the button, it redirected me to another url, and got error message. Hmmm&amp;hellip; It seems as clicking the button results in an endless loop of redirection.
 I then decided to see what is happening using burpsuite.
-Here I see that we get a new site that we can follow, so I decided to follow it manually, and after 2 more redirections we see the first character of the flag.</description>
+Everytime I sent a GET request to /flag.php site, I got new URLs instead. This was when I decided to follow it manually, and after 2 more redirections I could finally see the first character of the flag.</description>
       
     </item>
     

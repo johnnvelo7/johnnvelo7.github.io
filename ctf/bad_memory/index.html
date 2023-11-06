@@ -148,16 +148,16 @@ stroke-linejoin="round" class="feather feather-home">
                 
             </header><div class="page-content">
                 <h1 id="bad-memory---writeup">Bad Memory - Writeup</h1>
-<p>The task wants us to recover the password that the user has forgotten. I immediately thought of using <strong>volatility</strong> since we are working with an image or memory dump.</p>
+<p>The task wants us to recover the password that the user has forgotten. I immediately thought of using <em><strong>Volatility 3</strong></em> since we are working with an image or memory dump.</p>
 <p><code>file image.bin</code></p>
 <p><img src="/bad_memory/Picture1.png" alt="indrect payload 1"></p>
-<p>So straight to action we need to get the <strong>hashes</strong></p>
+<p>So straight to action, I decided to get the <em><strong>NTLM</strong></em> hashes from this image.</p>
 <p><code>vol -f image.bin windows.hashdump</code></p>
 <p><img src="/bad_memory/Picture2.png" alt="indrect payload 2"></p>
-<p>We need to save these hashes into a text file and fire up <strong>john the ripper</strong> to crack these hashes.</p>
+<p>I saveed these hashes into a text file and fire up my favourite password cracker, <em><strong>John The Ripper</strong></em> to crack these hashes.</p>
 <p><code>john --format=NT -w=/usr/share/wordlists/rockyou.txt hash.txt</code></p>
 <p><img src="/bad_memory/Picture3.png" alt="indrect payload 3"></p>
-<p>The only thing we need is make the <strong>md5sum</strong> of this string so we can get the flag.</p>
+<p>The only thing I have left is make the <em><strong>md5sum</strong></em> of this string to sumit as the flag format.</p>
 <p><code>echo -n &quot;goldfish#&quot; | md5sum</code></p>
 <p><img src="/bad_memory/Picture4.png" alt="indrect payload 4"></p>
 <p>flag{2eb53da441962150ae7d3840444dfdde}</p>

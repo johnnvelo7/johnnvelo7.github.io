@@ -148,37 +148,35 @@ stroke-linejoin="round" class="feather feather-home">
                 
             </header><div class="page-content">
                 <h1 id="black-cat---writeup">Black Cat - Writeup</h1>
-<p>In this challenge, we were given a zip file containing the malware.</p>
+<p>In this challenge, I was given a zip file containing the malware.</p>
 <p><img src="/blackcat/Picture1.png" alt="Black Cat 1"></p>
-<p>We can already see that the challenge is about decrypting the encrypted files inside the victim-files along with the <strong>NOTE.png</strong> that tells us what to do.</p>
+<p>I could already see that the challenge was about decrypting the encrypted files inside the victim-files along with the <em><strong>NOTE.png</strong></em> that tells me what to do in order to get the files back.</p>
 <p><img src="/blackcat/Picture2.png" alt="Black Cat 2"></p>
 <p><img src="/blackcat/Picture3.png" alt="Black Cat 3"></p>
-<p>We can already see the encrypted <strong>flag.txt</strong> along with some random files inside the <strong>“victim-files”</strong> folder.</p>
-<p>Since this is a CTF challenge, I thought about investing this pictures as well using <strong>Aperi&rsquo;Solve</strong>, a really good website to automate stenography.</p>
+<p>I also saw the encrypted <em><strong>flag.txt</strong></em> along with some random files inside the <em><strong>“victim-files”</strong></em> folder.</p>
+<p>Since this is a CTF challenge, I thought about investing this pictures as well using <em><strong>Aperi&rsquo;Solve</strong></em>, a really good website to automate stenography.</p>
 <p><img src="/blackcat/Picture4.png" alt="Black Cat 4"></p>
 <p><img src="/blackcat/Picture5.png" alt="Black Cat 5"></p>
 <p>The picture seems pretty normal and nothing inside.
-Next, we open the <strong>DecryptMyFiles.exe</strong> in <strong>Ghidra</strong> to inspect the file furthermore.</p>
+Next, I opened the <em><strong>DecryptMyFiles.exe</strong></em> in <em><strong>Ghidra</strong></em> to inspect the file furthermore.</p>
 <p><img src="/blackcat/Picture6.png" alt="Black Cat 6"></p>
-<p>After inspecting the main function, we find out that the program was written in Go Lang, as well as the culprit and explanation to what kind of encryption the program is using. The program is accepting any key more than 8 characters.</p>
+<p>After inspecting the main function, I found out that the program was written in Go Lang, and also found the culprit and explanation to what kind of encryption the program is using. The program is accepting any key more than 8 characters.</p>
 <p><img src="/blackcat/Picture13.png" alt="Black Cat 13"></p>
-<p>This is the part telling us that the program is manipulating byte orders, a.k.a <strong>XOR</strong>’ing the files. The next step for us is to find a known original file and try to XOR the two files, to get the original decryption key.
-Remembering that there is an encrypted file called “the-entire-text-of-hamlet.txt.encry”, I then decided to find the original text and compare both files.</p>
-<p><a href="https://gist.github.com/provpup/2fc41686eab7400b796b">https://gist.github.com/provpup/2fc41686eab7400b796b</a>
-I saved the file into hamlet.txt, and then ran <strong>“diff”</strong> command to compare both files.</p>
-<p><code>xxd encryptedhamlet.txt</code></p>
+<p>This is the part of the program where it is manipulating byte orders, a.k.a <strong>XOR</strong>’ing the files. The next step for me was to find a known original file and try to XOR the two files, to get the original decryption key.</p>
+<p>Remembering that there was an encrypted file called “the-entire-text-of-hamlet.txt.encry”, I then decided to find the original text and compare both files.</p>
+<p><a href="https://gist.github.com/provpup/2fc41686eab7400b796b">https://gist.github.com/provpup/2fc41686eab7400b796b</a></p>
+<p>I then saved the file into hamlet.txt, and then ran <strong>“diff”</strong> command to compare both files.</p>
 <p><img src="/blackcat/Picture7.png" alt="Black Cat 7"></p>
-<p>end of encrypted hamlet using xxd</p>
-<p><code>xxd hamlet.txt</code></p>
+<p><em>End of encrypted hamlet using xxd.</em> <code>xxd encryptedhamlet.txt</code></p>
 <p><img src="/blackcat/Picture8.png" alt="Black Cat 8"></p>
-<p>End of decrypted hamlet.</p>
+<p><em>End of decrypted hamlet using xxd.</em> <code>xxd hamlet.txt</code></p>
 <h2 id="wait-a-second">WAIT A SECOND</h2>
 <p>Hmm….. could it be that the decryption key is <strong>“COSMOBOI”</strong>?
-To be sure, we run this python script to XOR two files.</p>
+To be sure, I used this python script to XOR two files.</p>
 <p><img src="/blackcat/Picture9.png" alt="Black Cat 9"></p>
-<p>After running this script, we get to see that our susipicions were correct. The decryption key is <strong>“cosmoboi”</strong> which is 8 characters long.</p>
+<p>After running this script, I got to see that my susipicions were correct. The decryption key was <strong>“cosmoboi”</strong> which is 8 characters long.</p>
 <p><img src="/blackcat/Picture10.png" alt="Black Cat 10"></p>
-<p>I then decided to run <strong>wine</strong> for the decryption tool, and then put “cosmoboi” as the key, successfully helping us get the user’s files back!</p>
+<p>I then decided to run <strong>wine</strong> for the decryption tool, and then put “cosmoboi” as the key, successfully helping me get the user’s files back!</p>
 <p><img src="/blackcat/Picture11.png" alt="Black Cat 11"></p>
 <p><img src="/blackcat/Picture12.png" alt="Black Cat 12"></p>
 
