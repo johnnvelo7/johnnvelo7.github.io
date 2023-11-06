@@ -63,12 +63,12 @@ To be sure, we run this python script to XOR two files.
 
 ![Black Cat 9](/blackcat/Picture9.png)
 
-After running this script, our susipicions were correct. The decryption key is **“cosmoboi”** which is 8 characters long. 
+After running this script, we get to see that our susipicions were correct. The decryption key is **“cosmoboi”** which is 8 characters long. 
 
 ![Black Cat 10](/blackcat/Picture10.png)
 
 
-I then decided to run Decryption tool put the “cosmoboi” as the key, successfully helping us get the user’s files back!
+I then decided to run **wine** for the decryption tool, and then put “cosmoboi” as the key, successfully helping us get the user’s files back!
 
 ![Black Cat 11](/blackcat/Picture11.png)
 
