@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://velosecurity.com/projects/smidig/</loc>
-    <lastmod>2023-11-05T00:34:32+01:00</lastmod>
-  </url><url>
-    <loc>https://velosecurity.com/projects/soc/</loc>
-    <lastmod>2023-11-05T00:34:32+01:00</lastmod>
-  </url><url>
-    <loc>https://velosecurity.com/</loc>
-    <lastmod>2023-11-05T00:34:32+01:00</lastmod>
-  </url><url>
-    <loc>https://velosecurity.com/projects/</loc>
-    <lastmod>2023-11-05T00:34:32+01:00</lastmod>
+    <loc>https://velosecurity.com/ctf/bad_memory/</loc>
+    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://velosecurity.com/ctf/</loc>
-    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://velosecurity.com/</loc>
+    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://velosecurity.com/ctf/snake_eateri/</loc>
+    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://velosecurity.com/ctf/snake_eaterii/</loc>
+    <lastmod>2023-11-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://velosecurity.com/ctf/indirect_payload/</loc>
     <lastmod>2023-11-04T00:00:00+00:00</lastmod>
@@ -23,11 +23,23 @@
     <loc>https://velosecurity.com/tools/path_watcher/</loc>
     <lastmod>2023-11-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://velosecurity.com/projects/rb-exercise/</loc>
-    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://velosecurity.com/tools/</loc>
     <lastmod>2023-11-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://velosecurity.com/projects/smidig/</loc>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://velosecurity.com/projects/soc/</loc>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://velosecurity.com/projects/personal-site/</loc>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://velosecurity.com/projects/</loc>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://velosecurity.com/projects/rb-exercise/</loc>
+    <lastmod>2023-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://velosecurity.com/bio/me/</loc>
   </url><url>

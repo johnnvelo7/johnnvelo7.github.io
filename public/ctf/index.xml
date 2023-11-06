@@ -6,9 +6,52 @@
     <description>Recent content in Ctfs on John Velo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://velosecurity.com/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://velosecurity.com/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Indirect Payload (Miscellaneous) Huntress CTF Writeup</title>
+      <title>Bad Memory - Forensics (MEDIUM) Huntress CTF Writeup</title>
+      <link>https://velosecurity.com/ctf/bad_memory/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://velosecurity.com/ctf/bad_memory/</guid>
+      
+      <description>Bad Memory - Writeup The task wants us to recover the password that the user has forgotten. I immediately thought of using volatility since we are working with an image or memory dump.
+file image.bin
+So straight to action we need to get the hashes
+vol -f image.bin windows.hashdump
+We need to save these hashes into a text file and fire up john the ripper to crack these hashes.
+john --format=NT -w=/usr/share/wordlists/rockyou.</description>
+      
+    </item>
+    
+    <item>
+      <title>Snake Eater - Malware (EASY) Huntress CTF Writeup</title>
+      <link>https://velosecurity.com/ctf/snake_eateri/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://velosecurity.com/ctf/snake_eateri/</guid>
+      
+      <description>SNAKE EATER WRITEUP
+First things first, to analyze this malware, we need to examine what kind of file it is. Using the file and strings command in kali, it gave me a view of what this file is doing.
+Here is just the beginning and end of the file. I already see that the file is encrypted in some ways. In order to find it out, we run the BINWALK -E command in kali to see more what it is doing.</description>
+      
+    </item>
+    
+    <item>
+      <title>Snake Eater II - Malware (MEDIUM) Huntress CTF Writeup</title>
+      <link>https://velosecurity.com/ctf/snake_eaterii/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://velosecurity.com/ctf/snake_eaterii/</guid>
+      
+      <description>SNAKE EATER II WRITEUP
+After unzipping this file, I checked first what kind of file this malware is.
+Seems familiar to the previous challenge so I decided to check it in windows too. We see that It has the same icon as the previous challenge.
+I figured that this challenge will have the same thing as the previous challenge so I ran procmon to see what it is doing, perhaps on the same path directory as Snake Eater.</description>
+      
+    </item>
+    
+    <item>
+      <title>Indirect Payload - Miscellaneous (MEDIUM) Huntress CTF Writeup</title>
       <link>https://velosecurity.com/ctf/indirect_payload/</link>
       <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
       
