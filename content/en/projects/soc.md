@@ -1,5 +1,8 @@
-+++
-title = 'Home SOC'
-date = 2023-11-05T00:34:32+01:00
-draft = false
-+++
+---
+title: Home SOC
+date: 2023-11-01
+author: John Velo
+description: Project for home (SOC)
+---
+
+SOC at home (Work in progress) – ELK Stack, ProxMox, Security Onion, Unify Routers

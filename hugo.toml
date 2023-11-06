@@ -79,7 +79,7 @@ disqusShortname = ''
   # the default value is set to 'auto'.
   # You can take a look at layouts/index.html for more information.
   description = "My personal website"
-  mainSections = ['projects']
+  mainSections = ['projects', 'ctf', 'tools']
   toc = false # set to false to disable table of contents 'globally'
   tocOpen = false # set to true to open table of contents by default
   goToTop = false # set to false to disable 'go to top' button
@@ -98,7 +98,7 @@ disqusShortname = ''
 [Languages.en-gb.params.author]
   avatar = "cv_john.jpg" # put the file in assets folder; also ensure that image has same height and width
   # Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
-  intro = "Hi, i am John"
+  intro = "Hi, I am John"
   name = "John Velo"
   description = "I am a 24 year old multidisciplinary 3rd year cyber security student with excellent results and a bachelor's degree in entrepreneurship. Former cyber security trainee with experience in SOC (ELK Stack), endpoint security and phishing campaigns at Cyberon Security AS. Strong attention to detail, quick learning capacity and ability to improvise under limited resources. Actively engaged in the CTF environment and holds the position of vice president of Oslo CTF. Currently top 18 in Norway on Tryhackme."
 
