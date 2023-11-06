@@ -147,31 +147,36 @@ stroke-linejoin="round" class="feather feather-home">
                 </div>
                 
             </header><div class="page-content">
-                <p>SNAKE EATER WRITEUP</p>
-<p>First things first, to analyze this malware, we need to examine what kind of file it is. Using the file and strings command in kali, it gave me a view of what this file is doing.</p>
+                <h1 id="snake-eater---writeup">Snake Eater - Writeup</h1>
+<p>First things first, to analyze this malware, we need to examine what kind of file it is. Using the file and <strong>strings</strong> command in kali, it gave me a view of what this file is doing.</p>
+<p><code>strings snake_eater.exe</code></p>
 <p><img src="/snake_eaterI/Picture1.png" alt="Snake Eater 1"></p>
-<p>Here is just the beginning and end of the file. I already see that the file is encrypted in some ways. In order to find it out, we run the BINWALK -E command in kali to see more what it is doing.</p>
+<p>Here is just the beginning and end of the file. I already see that the file is encrypted in some ways.</p>
 <p><img src="/snake_eaterI/Picture2.png" alt="Snake Eater 2"></p>
 <p><img src="/snake_eaterI/Picture3.png" alt="Snake Eater 3"></p>
+<p>In order to find it out, we run the <strong>binwalk</strong> command in kali to see more what it is doing.</p>
+<p><code>binwalk -e snake_eater.exe</code></p>
 <p><img src="/snake_eaterI/Picture4.png" alt="Snake Eater 4"></p>
 <p>I found nothing useful because the data is encrypted.
 Using windows, we see the weird file icon.</p>
 <p><img src="/snake_eaterI/Picture5.png" alt="Snake Eater 5"></p>
 <p>Some google research later, we find that it is a python executable.
-Back in Kali, I tried to decompile this file using this python executable script called PyInstaller Extractor v2.0.</p>
+Back in Kali, I tried to decompile this file using this python executable script called <strong>PyInstaller Extractor v2.0</strong>.</p>
 <p><img src="/snake_eaterI/Picture6.png" alt="Snake Eater 6"></p>
 <p><a href="https://github.com/extremecoders-re/pyinstxtractor">https://github.com/extremecoders-re/pyinstxtractor</a></p>
 <p>After running the file we get the extracted folders, and are able to see inside the structure of the malware.</p>
+<p><code>extractor.py snake_eater.exe</code></p>
 <p><img src="/snake_eaterI/Picture7.png" alt="Snake Eater 7"></p>
 <p><img src="/snake_eaterI/Picture8.png" alt="Snake Eater 8"></p>
-<p>BAD NEWS: We see that the file Is encrypted using pyarmor.</p>
+<h2 id="bad-news">BAD NEWS:</h2>
+<p>We see that the file Is encrypted using pyarmor.</p>
 <p><img src="/snake_eaterI/Picture9.png" alt="Snake Eater 9"></p>
-<p>Running out of hope, I decided to run it dynamically in windows using procmon.</p>
+<p>Running out of hope, I decided to run it dynamically in windows using <strong>procmon</strong>.</p>
 <p><img src="/snake_eaterI/Picture10.png" alt="Snake Eater 10"></p>
 <p>We already see that it is doing A LOT. So what we need to do is to filter these event logs using the filter option.</p>
 <p><img src="/snake_eaterI/Picture11.png" alt="Snake Eater 11"></p>
 <p>Add this filter and apply.
-Just scrolling through the logs we already see the flag. :D</p>
+Just scrolling through the logs we already see the <strong>flag</strong>. :D</p>
 <p><img src="/snake_eaterI/Picture12.png" alt="Snake Eater 12"></p>
 <p><img src="/snake_eaterI/Picture13.png" alt="Snake Eater 13"></p>
 

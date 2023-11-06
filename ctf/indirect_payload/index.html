@@ -147,14 +147,14 @@ stroke-linejoin="round" class="feather feather-home">
                 </div>
                 
             </header><div class="page-content">
-                <p>INDIRECT PAYLOAD WRITEUP
-Visiting the website we get this page:
-<img src="/indirect_payload/Picture1.png" alt="indrect payload 1"></p>
+                <h1 id="indirect-payload---writeup">Indirect Payload - Writeup</h1>
+<p>Visiting the website we get this page:</p>
+<p><img src="/indirect_payload/Picture1.png" alt="indrect payload 1"></p>
 <p>Clicking on the button will redirect us to another url:</p>
 <p><img src="/indirect_payload/Picture2.png" alt="indrect payload 2"></p>
 <p>And then we get error message.</p>
 <p><img src="/indirect_payload/Picture3.png" alt="indrect payload 3"></p>
-<p>I then decided to see what is happening using burpsuite.</p>
+<p>I then decided to see what is happening using <strong>burpsuite</strong>.</p>
 <p><img src="/indirect_payload/Picture4.png" alt="indrect payload 4"></p>
 <p>Here I see that we get a new site that we can follow, so I decided to follow it manually, and after 2 more redirections we see the first character of the flag.</p>
 <p><img src="/indirect_payload/Picture5.png" alt="indrect payload 5"></p>
@@ -162,7 +162,7 @@ Visiting the website we get this page:
 <p><img src="/indirect_payload/Picture6.png" alt="indrect payload 6"></p>
 <p>After running the script, we can now see the whole picture.</p>
 <p><img src="/indirect_payload/Picture7.png" alt="indrect payload 7"></p>
-<p>We can then use this python script to parse the payload and print the flag. I first saved the output to a file called “flag.txt” and then ran it.</p>
+<p>We can then use this python script to parse the payload and print the flag. I first saved the output to a file called <strong>“flag.txt”</strong> and then ran it.</p>
 <p><img src="/indirect_payload/Picture8.png" alt="indrect payload 8"></p>
 <p><img src="/indirect_payload/Picture9.png" alt="indrect payload 9"></p>
 

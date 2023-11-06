@@ -3,17 +3,17 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Snake Eater II - Malware (MEDIUM) Huntress CTF Writeup | John Velo Site</title>
-<meta property="og:title" content="Snake Eater II - Malware (MEDIUM) Huntress CTF Writeup | John Velo Site" />
-<meta name="twitter:title" content="Snake Eater II - Malware (MEDIUM) Huntress CTF Writeup | John Velo Site" />
-<meta itemprop="name" content="Snake Eater II - Malware (MEDIUM) Huntress CTF Writeup | John Velo Site" />
-<meta name="application-name" content="Snake Eater II - Malware (MEDIUM) Huntress CTF Writeup | John Velo Site" />
+<title itemprop="name">BlackCat - Malware (EASY - not really) Huntress CTF Writeup | John Velo Site</title>
+<meta property="og:title" content="BlackCat - Malware (EASY - not really) Huntress CTF Writeup | John Velo Site" />
+<meta name="twitter:title" content="BlackCat - Malware (EASY - not really) Huntress CTF Writeup | John Velo Site" />
+<meta itemprop="name" content="BlackCat - Malware (EASY - not really) Huntress CTF Writeup | John Velo Site" />
+<meta name="application-name" content="BlackCat - Malware (EASY - not really) Huntress CTF Writeup | John Velo Site" />
 <meta property="og:site_name" content="John Velo Site" />
 
-<meta name="description" content="Snake Eater II">
-<meta itemprop="description" content="Snake Eater II" />
-<meta property="og:description" content="Snake Eater II" />
-<meta name="twitter:description" content="Snake Eater II" />
+<meta name="description" content="Black Cat">
+<meta itemprop="description" content="Black Cat" />
+<meta property="og:description" content="Black Cat" />
+<meta name="twitter:description" content="Black Cat" />
 
 <meta property="og:locale" content="en-gb" />
 <meta name="language" content="en-gb" />
@@ -33,7 +33,7 @@
 
     
 
-    <link rel="canonical" href="https://velosecurity.com/ctf/snake_eaterii/">
+    <link rel="canonical" href="https://velosecurity.com/ctf/blackcat/">
     <link href="/style.min.79ee4530e2218018d2c114e16552697a0e232ecbf3214e8103a24d37cf0225b3.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -139,7 +139,7 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title">Snake Eater II - Malware (MEDIUM) Huntress CTF Writeup</h1>
+                <h1 class="header-title">BlackCat - Malware (EASY - not really) Huntress CTF Writeup</h1>
                 
                 
                 <div class="post-meta">
@@ -147,25 +147,40 @@ stroke-linejoin="round" class="feather feather-home">
                 </div>
                 
             </header><div class="page-content">
-                <h1 id="snake-eater-ii---writeup">Snake Eater II - Writeup</h1>
-<p>After unzipping this file, I checked first what kind of file this malware is.</p>
-<p><code>file snake_eaterII.exe</code></p>
-<p><img src="/snake_eaterII/Picture1.png" alt="Snake Eater II 1"></p>
-<p>Seems familiar to the previous challenge so I decided to check it in windows too. We see that It has the same icon as the previous challenge.</p>
-<p><img src="/snake_eaterII/Picture2.png" alt="Snake Eater II 2"></p>
-<p>I figured that this challenge will have the same thing as the previous challenge so I ran <strong>procmon</strong> to see what it is doing, perhaps on the same path directory as Snake Eater.
-We do get to see some interesting files that were created and <strong>deleted in microseconds</strong>.</p>
-<p><img src="/snake_eaterII/Picture3.png" alt="Snake Eater II 3"></p>
-<p>I tried to open the directory given to see if the flag is there, but it seems to be getting deleted really fast. I also found out that flag.txt is getting created on random folders after the /AppData/Roaming. This is a problem for me because I have multiple folders in that path, so catching the flag will be a bit difficult. That is when I decided that I will do everything in Linux since I only have 1 folder in that path in there.</p>
-<p>First, we use <strong>“inotifywait”</strong> program to see if it is catching the creation and deletion of file in the directory. (Install this first if you don’t have it)</p>
-<p>Using <strong>wine</strong>, we can run some windows executables in Kali. And just as I thought, we were able to catch the creation of the <strong>flag.txt</strong> (Install wine first If you don’t have it)</p>
-<p><img src="/snake_eaterII/Picture4.png" alt="Snake Eater II 4"></p>
-<p><img src="/snake_eaterII/Picture5.png" alt="Snake Eater II 5"></p>
-<p>Now just to make a python script that can read this file REALLY fast. This is when I decided to create a python program called <strong>PATH_WATCHER</strong> that can do just that (shameless plug).</p>
-<p><img src="/images/pathwatcher.png" alt="Path Watcher Example"></p>
-<p><a href="https://github.com/johnnvelo7/path_watcher">https://github.com/johnnvelo7/path_watcher</a></p>
-<p><img src="/snake_eaterII/Picture6.png" alt="Snake Eater II 6"></p>
-<p>After running the script on the same path, we were able to see the flag. 😊</p>
+                <h1 id="black-cat---writeup">Black Cat - Writeup</h1>
+<p>In this challenge, we were given a zip file containing the malware.</p>
+<p><img src="/blackcat/Picture1.png" alt="Black Cat 1"></p>
+<p>We can already see that the challenge is about decrypting the encrypted files inside the victim-files along with the <strong>NOTE.png</strong> that tells us what to do.</p>
+<p><img src="/blackcat/Picture2.png" alt="Black Cat 2"></p>
+<p><img src="/blackcat/Picture3.png" alt="Black Cat 3"></p>
+<p>We can already see the encrypted <strong>flag.txt</strong> along with some random files inside the <strong>“victim-files”</strong> folder.</p>
+<p>Since this is a CTF challenge, I thought about investing this pictures as well using <strong>Aperi&rsquo;Solve</strong>, a really good website to automate stenography.</p>
+<p><img src="/blackcat/Picture4.png" alt="Black Cat 4"></p>
+<p><img src="/blackcat/Picture5.png" alt="Black Cat 5"></p>
+<p>The picture seems pretty normal and nothing inside.
+Next, we open the <strong>DecryptMyFiles.exe</strong> in <strong>Ghidra</strong> to inspect the file furthermore.</p>
+<p><img src="/blackcat/Picture6.png" alt="Black Cat 6"></p>
+<p>After inspecting the main function, we find out that the program was written in Go Lang, as well as the culprit and explanation to what kind of encryption the program is using. The program is accepting any key more than 8 characters.</p>
+<p><img src="/blackcat/Picture13.png" alt="Black Cat 13"></p>
+<p>This is the part telling us that the program is manipulating byte orders, a.k.a <strong>XOR</strong>’ing the files. The next step for us is to find a known original file and try to XOR the two files, to get the original decryption key.
+Remembering that there is an encrypted file called “the-entire-text-of-hamlet.txt.encry”, I then decided to find the original text and compare both files.</p>
+<p><a href="https://gist.github.com/provpup/2fc41686eab7400b796b">https://gist.github.com/provpup/2fc41686eab7400b796b</a>
+I saved the file into hamlet.txt, and then ran <strong>“diff”</strong> command to compare both files.</p>
+<p><code>xxd encryptedhamlet.txt</code></p>
+<p><img src="/blackcat/Picture7.png" alt="Black Cat 7"></p>
+<p>end of encrypted hamlet using xxd</p>
+<p><code>xxd hamlet.txt</code></p>
+<p><img src="/blackcat/Picture8.png" alt="Black Cat 8"></p>
+<p>End of decrypted hamlet.</p>
+<h2 id="wait-a-second">WAIT A SECOND</h2>
+<p>Hmm….. could it be that the decryption key is <strong>“COSMOBOI”</strong>?
+To be sure, we run this python script to XOR two files.</p>
+<p><img src="/blackcat/Picture9.png" alt="Black Cat 9"></p>
+<p>After running this script, our susipicions were correct. The decryption key is <strong>“cosmoboi”</strong> which is 8 characters long.</p>
+<p><img src="/blackcat/Picture10.png" alt="Black Cat 10"></p>
+<p>I then decided to run Decryption tool put the “cosmoboi” as the key, successfully helping us get the user’s files back!</p>
+<p><img src="/blackcat/Picture11.png" alt="Black Cat 11"></p>
+<p><img src="/blackcat/Picture12.png" alt="Black Cat 12"></p>
 
             </div>
         </article></main>

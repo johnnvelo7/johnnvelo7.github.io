@@ -6,8 +6,10 @@ description: Indirect Payload
 ---
 
 
-INDIRECT PAYLOAD WRITEUP
+# Indirect Payload - Writeup
+
 Visiting the website we get this page:
+
 ![indrect payload 1](/indirect_payload/Picture1.png)
 
 
@@ -19,7 +21,7 @@ And then we get error message.
  
 ![indrect payload 3](/indirect_payload/Picture3.png)
 
-I then decided to see what is happening using burpsuite. 
+I then decided to see what is happening using **burpsuite**. 
 
 ![indrect payload 4](/indirect_payload/Picture4.png)
  
@@ -35,7 +37,7 @@ After running the script, we can now see the whole picture.
 
 ![indrect payload 7](/indirect_payload/Picture7.png)
  
-We can then use this python script to parse the payload and print the flag. I first saved the output to a file called “flag.txt” and then ran it.
+We can then use this python script to parse the payload and print the flag. I first saved the output to a file called **“flag.txt”** and then ran it.
 
 ![indrect payload 8](/indirect_payload/Picture8.png)
 
