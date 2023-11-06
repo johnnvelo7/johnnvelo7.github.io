@@ -31,10 +31,10 @@
     
     <item>
       <title>Indirect Payload (Miscellaneous) Huntress CTF Writeup</title>
-      <link>https://velosecurity.com/ctf/huntressctf/indirect_payload/</link>
+      <link>https://velosecurity.com/ctf/indirect_payload/</link>
       <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://velosecurity.com/ctf/huntressctf/indirect_payload/</guid>
+      <guid>https://velosecurity.com/ctf/indirect_payload/</guid>
       
       <description>INDIRECT PAYLOAD WRITEUP Visiting the website we get this page: Clicking on the button will redirect us to another url:
 And then we get error message.
