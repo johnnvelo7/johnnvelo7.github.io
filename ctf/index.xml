@@ -6,7 +6,21 @@
     <description>Recent content in Ctfs on John Velo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://velosecurity.com/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://velosecurity.com/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BlackCat2 - Malware (HARD) Huntress CTF Writeup</title>
+      <link>https://velosecurity.com/ctf/blackcat2/</link>
+      <pubDate>Thu, 09 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://velosecurity.com/ctf/blackcat2/</guid>
+      
+      <description>Black Cat 2 - Writeup This task was about decrypting the encrypted files and try to get the flag back from the user’s files.
+I was given these files to play around with, pretty much the same as the first black cat task just without the NOTE.png.
+These are the encrypted files inside the victim folder.
+I figured that it might have the same solution as the last task, so I decided to check the file description, as well the strings from the decryptor.</description>
+      
+    </item>
+    
     <item>
       <title>Bad Memory - Forensics (MEDIUM) Huntress CTF Writeup</title>
       <link>https://velosecurity.com/ctf/bad_memory/</link>

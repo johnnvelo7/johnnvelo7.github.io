@@ -124,5 +124,11 @@ disqusShortname = ''
   url = "https://www.linkedin.com/in/johnnvelo7/"
   
   [[params.socialIcons]]
+  name = "Tryhackme"
+  url = "https://tryhackme.com/p/johnnvelo7"
+
+  [[params.socialIcons]]
   name = "Discord"
   url = "https://discordapp.com/users/290072051514081281"
+
+

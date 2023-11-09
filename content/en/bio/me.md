@@ -4,12 +4,11 @@ description: 'About Me'
 author: John Velo
 ---
 
-**~$ whoami**: John Velo
+**~$ whoami**: *John Velo*
 
 ![Me](/images/cv_john.jpg)
                 
  24 year old multidisciplinary 3rd year cyber security student with excellent results and a bachelor's degree in entrepreneurship. Former cyber security trainee with experience in SOC (ELK Stack), endpoint security and phishing campaigns at Cyberon Security AS. Strong attention to detail, quick learning capacity and ability to improvise under limited resources. Actively engaged in the CTF environment and holds the position of vice president of Oslo CTF. Currently top 18 in Norway on Tryhackme.
-
                 
 # ETHICAL HACKING SKILLS:
                 
@@ -24,5 +23,12 @@ author: John Velo
 **• Physical Pentest** – HAK5 gadgets, OMG-cables, Flipper-zero, Lock picking (Level 2)
                 
 **• Blue Teaming** – ELK Stack, Splunk, Zeek, Rita, Suricata, Security Onion.
+
+## Websites
+***GitHub*** : *https://github.com/johnnvelo7*
+
+***LinkedIn*** : *https://www.linkedin.com/in/johnnvelo7/*
+
+***TryHackMe*** : *https://tryhackme.com/p/johnnvelo7*
 
 ![Me](/images/velosec.png)
