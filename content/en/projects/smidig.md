@@ -9,8 +9,12 @@ description: Project for School
 
 **Used** *React Native, MongoDB, Android Studio, and Git*
 
-## A - Grade (***Agile Scrum Methodology***)
+## A - Grade 
 
 ![chew](/projects/chew.png)
 
-*https://www.youtube.com/watch?v=zPu3_p73fns&t=520s*
+**Youtube Video Demo**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zPu3_p73fns?si=YXg9ZQml1GfNkFhQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+*Agile Scrum Methodology*
