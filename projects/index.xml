@@ -14,7 +14,8 @@
       
       <guid>https://velosecurity.com/projects/smidig/</guid>
       
-      <description>Mobile App for children’s cooking (School Project) – React Native, MongoDB, Android Studio</description>
+      <description>Mobile App for children’s cooking (School Project) Used React Native, MongoDB, Android Studio, and Git
+A - Grade (Agile Scrum Methodology) https://www.youtube.com/watch?v=zPu3_p73fns&amp;amp;t=520s</description>
       
     </item>
     
@@ -25,7 +26,8 @@
       
       <guid>https://velosecurity.com/projects/soc/</guid>
       
-      <description>SOC at home (Work in progress) – ELK Stack, ProxMox, Security Onion, Unify Routers</description>
+      <description>SOC at home (Work in progress) Currently Using: ELK Stack, ProxMox, and Security Onion
+Will add Unifi Routers soon!</description>
       
     </item>
     
@@ -36,7 +38,7 @@
       
       <guid>https://velosecurity.com/projects/personal-site/</guid>
       
-      <description>Personal Website (Work in progress) – GitHub, React, JavaScript, HTML/CSS</description>
+      <description>Personal Website (Work in progress) Currently using: GitHub, JavaScript, HTML/CSS, and Hugo Framework</description>
       
     </item>
     
@@ -47,7 +49,7 @@
       
       <guid>https://velosecurity.com/projects/rb-exercise/</guid>
       
-      <description>Home Lab for Red &amp;amp; Blue Team Exercises – Security Onion, ProxMox, ELK Stack</description>
+      <description>Home Lab for Red &amp;amp; Blue Team Exercises (Work in Progress) Currently Using: Security Onion, ProxMox, ELK Stack, and Suricata Rules</description>
       
     </item>
     

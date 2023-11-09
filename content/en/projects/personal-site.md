@@ -5,4 +5,8 @@ author: John Velo
 description: Website
 ---
 
-Personal Website (Work in progress) – GitHub, React, JavaScript, HTML/CSS
+# Personal Website (Work in progress)
+
+**Currently using**: *GitHub, JavaScript, HTML/CSS, and Hugo Framework*
+
+![website](/projects/Picture1.png)

@@ -5,4 +5,8 @@ author: John Velo
 description: My writeups
 ---
 
-Home Lab for Red & Blue Team Exercises – Security Onion, ProxMox, ELK Stack
+# Home Lab for Red & Blue Team Exercises (Work in Progress)
+
+**Currently Using**: *Security Onion, ProxMox, ELK Stack, and Suricata Rules*
+
+![rb](/projects/kali.png)
