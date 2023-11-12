@@ -3,17 +3,17 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Ctfs | John Velo Site</title>
-<meta property="og:title" content="Ctfs | John Velo Site" />
-<meta name="twitter:title" content="Ctfs | John Velo Site" />
-<meta itemprop="name" content="Ctfs | John Velo Site" />
-<meta name="application-name" content="Ctfs | John Velo Site" />
+<title itemprop="name">EPT1911 - (BEGINNER - not really) Equinor CTF Writeup | John Velo Site</title>
+<meta property="og:title" content="EPT1911 - (BEGINNER - not really) Equinor CTF Writeup | John Velo Site" />
+<meta name="twitter:title" content="EPT1911 - (BEGINNER - not really) Equinor CTF Writeup | John Velo Site" />
+<meta itemprop="name" content="EPT1911 - (BEGINNER - not really) Equinor CTF Writeup | John Velo Site" />
+<meta name="application-name" content="EPT1911 - (BEGINNER - not really) Equinor CTF Writeup | John Velo Site" />
 <meta property="og:site_name" content="whoami" />
 
-<meta name="description" content="My personal website">
-<meta itemprop="description" content="My personal website" />
-<meta property="og:description" content="My personal website" />
-<meta name="twitter:description" content="My personal website" />
+<meta name="description" content="EPIT1911">
+<meta itemprop="description" content="EPIT1911" />
+<meta property="og:description" content="EPIT1911" />
+<meta name="twitter:description" content="EPIT1911" />
 
 <meta property="og:locale" content="en-gb" />
 <meta name="language" content="en-gb" />
@@ -33,9 +33,7 @@
 
     
 
-    <link rel="canonical" href="https://velosecurity.com/ctf/">
-    <link href="/ctf/index.xml" rel="alternate" type="application/rss+xml" title="John Velo Site">
-    <link href="/ctf/index.xml" rel="feed" type="application/rss+xml" title="John Velo Site">
+    <link rel="canonical" href="https://velosecurity.com/ctf/ept1911/">
     <link href="/style.min.79ee4530e2218018d2c114e16552697a0e232ecbf3214e8103a24d37cf0225b3.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -136,135 +134,56 @@ stroke-linejoin="round" class="feather feather-home">
         </div>
     </nav>
 </div>
-<div class="wrapper list-page">
-    <header class="header">
-        <h1 class="header-title center">Ctfs</h1>
-    </header>
+
+<div class="wrapper post">
     <main class="page-content" aria-label="Content">
-        
-        
-        <h2 class="post-year">2023</h2>
+        <article>
+            <header class="header">
+                <h1 class="header-title">EPT1911 - (BEGINNER - not really) Equinor CTF Writeup</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-11-12T00:00:00&#43;00:00" itemprop="datePublished"> 12 Nov 2023 </time>
+                </div>
+                
+            </header><div class="page-content">
+                <h1 id="ept1911---writeup">EPT1911 - Writeup</h1>
+<p><strong>Task Description:</strong></p>
+<p><img src="/ept1911/Picture1.png" alt="ept1911"></p>
+<p>After unzipping the file, I was given only 1 tool to work with which was the <em><strong>KeyGen.exe</strong></em></p>
+<p><img src="/ept1911/Picture2.png" alt="ept1911"></p>
+<p><img src="/ept1911/Picture3.png" alt="ept1911"></p>
+<p>A weird key generator tool with title <em><strong>“Razor”</strong></em>. Doing some light <em><strong>OSINT</strong></em> we find that razor is an actual tool used for keygen.</p>
+<p><img src="/ept1911/Picture4.png" alt="ept1911"></p>
+<p><img src="/ept1911/Picture5.png" alt="ept1911"></p>
+<p>We also find that it’s a <em>Norwegian demo group</em> since 1986.</p>
+<p><strong>Time to Check the file!</strong></p>
+<p>I see that it’s a tool compiled using <em><strong>.NET</strong></em>. This is good news since we can use <em><strong>dnSpy</strong></em> to see the source code of the program.</p>
+<p><img src="/ept1911/Picture6.png" alt="ept1911"></p>
+<p><img src="/ept1911/Picture7.png" alt="ept1911"></p>
+<p><em>The source code</em></p>
+<p><img src="/ept1911/Picture8.png" alt="ept1911"></p>
+<p><em>This checks if the computer is part of the domain contoso.com, then prints the flag.</em></p>
+<p><img src="/ept1911/Picture9.png" alt="ept1911"></p>
+<p><em>The encoded part of the flag.</em></p>
+<p><strong>In summary</strong></p>
+<p>This program checks if the machine is part of <em>contoso.com</em> domain. If it is, it will print <em>“EPT{“</em> along with the strings decoded from the <em>“Settings.Default.encpw”</em> code. For each character in encpw, it adds <em>42</em> and converts the character back to text.</p>
+<p>Knowing what to do next, I used this python script to decode the array of strings from <em>“encpw”</em> code back to text, as well as adding 42 in it.</p>
+<p><img src="/ept1911/Picture10.png" alt="ept1911">
+<img src="/ept1911/Picture11.png" alt="ept1911"></p>
+<p><strong>SIKE</strong></p>
+<p>I got this flag, but it was wrong. I was stuck because I didn’t know if I was missing something, or if the server was having problems. That’s why I contacted the guys from the event and got a tip to make sure if I have the <em>“complete”</em> flag. Hmmmm…</p>
+<p>I then went back to the source code and found the crucial part that I missed.</p>
+<p><img src="/ept1911/Picture12.png" alt="ept1911"></p>
+<p>This was the part of the code which adds <em>‘!’</em> to the end of the string, completing the flag.</p>
+<p><img src="/ept1911/Picture13.png" alt="ept1911"></p>
+<p>After running the new script, I finally got the correct <em><strong>flag!</strong></em></p>
+<p><img src="/ept1911/Picture14.png" alt="ept1911"></p>
 
-        
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/ctf/ept1911/">EPT1911 - (BEGINNER - not really) Equinor CTF Writeup</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-11-12T00:00:00Z">
-        12 Nov 2023
-        
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/ctf/blackcat2/">BlackCat2 - Malware (HARD) Huntress CTF Writeup</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-11-09T00:00:00Z">
-        9 Nov 2023
-        
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/ctf/snake_eaterii/">Snake Eater II - Malware (MEDIUM) Huntress CTF Writeup</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-11-06T00:00:00Z">
-        6 Nov 2023
-        
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/ctf/snake_eateri/">Snake Eater - Malware (EASY) Huntress CTF Writeup</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-11-06T00:00:00Z">
-        6 Nov 2023
-        
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/ctf/blackcat/">BlackCat - Malware (EASY - not really) Huntress CTF Writeup</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-11-06T00:00:00Z">
-        6 Nov 2023
-        
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/ctf/bad_memory/">Bad Memory - Forensics (MEDIUM) Huntress CTF Writeup</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-11-06T00:00:00Z">
-        6 Nov 2023
-        
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/ctf/indirect_payload/">Indirect Payload - Miscellaneous (MEDIUM) Huntress CTF Writeup</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-11-04T00:00:00Z">
-        4 Nov 2023
-        
-    </time>
-</article>
-
-
-         
-
-         
-
-    </main>
-</div><footer class="footer">
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 
