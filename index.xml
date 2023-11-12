@@ -8,18 +8,18 @@
     <language>en-gb</language>
     <lastBuildDate>Sun, 12 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://velosecurity.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>EPT1911 - (BEGINNER - not really) Equinor CTF Writeup</title>
+      <title>EPT1911 - Reverse Engineering (BEGINNER - not really) Equinor CTF Writeup</title>
       <link>https://velosecurity.com/ctf/ept1911/</link>
       <pubDate>Sun, 12 Nov 2023 00:00:00 +0000</pubDate>
       
       <guid>https://velosecurity.com/ctf/ept1911/</guid>
       
-      <description>EPT1911 - Writeup Task Description:
+      <description>EPT1911 - RE Writeup Task Description:
 After unzipping the file, I was given only 1 tool to work with which was the KeyGen.exe
 A weird key generator tool with title “Razor”. Doing some light OSINT we find that razor is an actual tool used for keygen.
 We also find that it’s a Norwegian demo group since 1986.
 Time to Check the file!
-I see that it’s a tool compiled using .NET. This is good news since we can use dnSpy to see the source code of the program.</description>
+I see that it’s a tool compiled using .</description>
       
     </item>
     
