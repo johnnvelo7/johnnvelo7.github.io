@@ -6,7 +6,20 @@
     <description>Recent content on John Velo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 12 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://velosecurity.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://velosecurity.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EASYPWN - BUFFER OVERFLOW (BEGINNER - not really) Equinor CTF Writeup</title>
+      <link>https://velosecurity.com/ctf/easypwn/</link>
+      <pubDate>Mon, 13 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://velosecurity.com/ctf/easypwn/</guid>
+      
+      <description>EASYPWN - BUFFEER OVERFLOW Writeup Task Description:
+This task is a typical easy buffer overflow exploit. We were given 4 files including a fake flag and docker file so we can test if our payload works locally.
+Examining the file by the command file easypwn, we get to see that it is not stripped, meaning there is still debugging information inside as well as no security measures such as ASLR (Address Space Layout Randomization), NX (No eXecute) bit, and Stack Canaries that prevents buffer overflow exploits.</description>
+      
+    </item>
+    
     <item>
       <title>EPT1911 - Reverse Engineering (BEGINNER - not really) Equinor CTF Writeup</title>
       <link>https://velosecurity.com/ctf/ept1911/</link>
