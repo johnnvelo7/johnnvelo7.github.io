@@ -39,7 +39,7 @@ We see that the **winner function** is the one responsible for printing the flag
 
 We can use this script to know the offset, which is the number of bytes we need to write to reach to the point where we can overwrite the return address or another critical part of the memory structure, which in this case we want to call the winner function to print the flag. 
 
-```
+```python
 from pwn import *
 
 # Load the ELF
@@ -75,7 +75,7 @@ Since were given a dockerfile, let’s run it first to test if the exploit works
 
 We can use this script which also uses pwntools to test our payload locally.
 
-```
+```python
 from pwn import *
 
 #to test on local net

